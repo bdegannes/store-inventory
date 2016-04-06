@@ -21,13 +21,8 @@ new WebpackDevServer(webpack(config), {
      proxy: {
        '*': 'http://localhost:3000',
      },
-   }).listen(3001, 'localhost', function (err, result) {
-     if (err) {
-       console.log(err);
-     } else {
-       console.log('Listening at localhost:3001');
-     }
-
+   }).listen(3001, 'localhost', function (err) {
+     err ? console.log(err) : console.log('Listening at localhost:3001');
    });
 
  app.listen(port);
