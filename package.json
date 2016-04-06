@@ -1,14 +1,14 @@
 {
-  "name": "react-redux-boilerplate",
+  "name": "store-inventory-app",
   "version": "1.0.0",
-  "description": "simple react redux boilerplate",
+  "description": "store inventory with shopping basket",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bdegannes/react-redux-boilerplate.git"
+    "url": "git+https://github.com/bdegannes/store-inventory.git"
   },
   "keywords": [
     "react",
@@ -17,9 +17,9 @@
   "author": "Blaine Degannes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bdegannes/react-redux-boilerplate/issues"
+    "url": "https://github.com/bdegannes/store-inventory/issues"
   },
-  "homepage": "https://github.com/bdegannes/react-redux-boilerplate#readme",
+  "homepage": "https://github.com/bdegannes/store-inventory#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.4",
     "autoprefixer-core": "^6.0.1",
