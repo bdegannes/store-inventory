@@ -5,13 +5,15 @@ import { addProduct } from '../actions/addProductAction'
 import RaisedButton from 'material-ui/lib/raised-button'
 
 export default class Product extends Component {
+
   constructor(props){
     super(props);
     this.state = {
+      id: 0,
       product: "",
       cost: 0,
       stock: 0
-    }
+    };
     this.onInputChange = this.onInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
@@ -24,24 +26,25 @@ export default class Product extends Component {
         this.setState({ product: event.target.value });
         break;
       case "form-currency" :
-        this.setState({ cost: event.target.value });
+        this.setState({ cost: +event.target.value });
         break;
       case "form-stock" :
-        this.setState({ stock: event.target.value });
+        this.setState({ stock: +event.target.value });
         break;
     }
   }
 
   onFormSubmit(event){
-    console.log("Clicked", this.props);
     event.preventDefault();
-    this.props.addProduct(this.state.product, this.state.cost, this.state.stock);
+    let newID = this.state.id;
+    this.setState({id: newID+=1});
+    this.props.addProduct(this.state.id, this.state.product, this.state.cost, this.state.stock);
     this.setState({
       product: "",
       cost: 0,
       stock: 0
     });
-    console.log(this.state);
+    console.log("After State", this.state);
   }
 
   render () {

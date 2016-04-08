@@ -1,6 +1,6 @@
 import { ADD_PRODUCT } from '../actions/addProductAction';
 
-const intialState = {products:[]};
+const intialState = { products:[] };
 
 export default function(state = intialState, action) {
   console.log("reducer ", action);
@@ -10,6 +10,7 @@ export default function(state = intialState, action) {
       products: [
         ...state.products,
         {
+          id: action.id,
           product: action.name,
           cost: action.cost,
           stock: action.stock
