@@ -1,8 +1,13 @@
+'use strict';
+
 import { combineReducers } from 'redux';
-import addProduct from './addProductReducer'
+import products from './addProductReducer'
+import basket from './basketReducer'
+
 
 const rootReducer = combineReducers({
-  addProduct: addProduct
+  products,
+  basket
 });
 
 export default rootReducer;

@@ -1,3 +1,100 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+.main-container {
+  overflow: auto;
+  padding: 20px;
+}
+
+.main {
+  display: flex;
+}
+
+h2 {
+  padding: 0 25px;
+}
+
+.productForm {
+  margin: 0 10px;
+  background: #ecf0f1;
+  border-radius: 3px;
+  flex: 1;
+  border: 1px #bdc3c7 solid;
+}
+
+.form {
+  padding: 0 25px 20px;
+}
+
+.formRow {
+  width: 100%;
+  display: inline-block;
+}
+
+input {
+  width: 100%;
+  height: 45px;
+  border-radius: 2px;
+  font-size: 18px;
+  padding: 0 8px 0;
+  border-style: solid;
+  border: 1px #bdc3c7 solid;
+  box-sizing: border-box;
+}
+
+.submitBtn {
+  display: inline-block;
+  margin: 20px 0 0;
+}
+
+.List {
+  margin: 0 10px;
+  background: #ecf0f1;
+  border-radius: 3px;
+  flex: 1;
+  border: 1px #bdc3c7 solid;
+}
+
+li {
+  list-style: none;
+}
+
+.product {
+  padding: 0;
+  flex: 1
+}
+
+.listItem {
+  padding: 0 20px;
+  display: flex;
+  transition: .2s;
+  background: #bdc3c7;
+  margin-top: 2px;
+}
+
+.listItem:hover{
+  background: #34495e
+}
+
+.icon {
+  margin: 10px 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px #bdc3c7 solid;
+  border-radius: 3px;
+}
+
+.icon:hover {
+  background: #2c3e50;
+  transition: .5s;
+}
+
+icon:active{
+  background: #bdc3c7;
+}
+
+.formInput {
+  margin: 15px 0;
+}

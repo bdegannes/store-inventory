@@ -1,3 +1,5 @@
+'use strict';
+
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
@@ -9,7 +11,6 @@ export default class Product extends Component {
   constructor(props){
     super(props);
     this.state = {
-      id: 0,
       product: "",
       cost: 0,
       stock: 0
@@ -19,7 +20,6 @@ export default class Product extends Component {
   }
 
   onInputChange(event) {
-    console.log("this is the event", event.target.value)
     var selectedClass = event.target.getAttribute("class");
     switch (selectedClass){
       case "form-product" :
@@ -36,22 +36,21 @@ export default class Product extends Component {
 
   onFormSubmit(event){
     event.preventDefault();
-    let newID = this.state.id;
-    this.setState({id: newID+=1});
-    this.props.addProduct(this.state.id, this.state.product, this.state.cost, this.state.stock);
+    this.props.addProduct(this.state);
     this.setState({
       product: "",
       cost: 0,
       stock: 0
     });
-    console.log("After State", this.state);
   }
 
   render () {
     return (
-      <div>
+      <div className="productForm">
+      <h2> New Product </h2>
+      <div className="form">
         <form className="formRow" onSubmit={this.onFormSubmit}>
-          <div>
+          <div className="formInput">
             <label>Product Name</label>
             <div>
               <input
@@ -62,7 +61,7 @@ export default class Product extends Component {
                   />
             </div>
           </div>
-          <div>
+          <div className="formInput">
             <label>Price</label>
             <div>
               <input
@@ -75,7 +74,7 @@ export default class Product extends Component {
                   />
             </div>
           </div>
-          <div>
+          <div className="formInput">
             <label>Stock</label>
             <div>
               <input
@@ -88,9 +87,8 @@ export default class Product extends Component {
                   />
             </div>
           </div>
-          <div>
+          <div className="submitBtn" >
             <RaisedButton
-                className="submitBtn"
                 label="Submit"
                 primary={true}
                 onClick={this.onFormSubmit}
@@ -98,6 +96,7 @@ export default class Product extends Component {
           </div>
         </form>
       </div>
+    </div>
     )
   }
 }

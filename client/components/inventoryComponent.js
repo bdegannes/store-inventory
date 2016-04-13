@@ -1,33 +1,38 @@
+'use strict';
+
 import React, { Component, PropTypes } from 'react'
 import Item from './itemComponent'
 
 class Inventory extends Component {
 
   render () {
-    console.log("this is props", this.props);
     return (
-      <div className="inventory">
-        <ul>
+      <div className="List">
+      <h2> Inventory </h2>
+        <div >
           {this.props.products.map(product =>
             <Item
               key={product.id}
               {...product}
+              type="Stock"
+              onClick={() => this.props.onAddToBasket(product)}
+              icon="shopping_cart"
             />
           )}
-        </ul>
+        </div>
       </div>
-
     )
   }
 }
 
 Inventory.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired, 
+    id: PropTypes.number.isRequired,
     product: PropTypes.string.isRequired,
     cost: PropTypes.number.isRequired,
-    stock: PropTypes.number.isRequired
-  }).isRequired).isRequired
+    stock: PropTypes.number.isRequired,
+  }).isRequired).isRequired,
+  onAddToBasket: PropTypes.func.isRequired
 }
 
 export default Inventory
