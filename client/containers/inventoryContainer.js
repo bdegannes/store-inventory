@@ -1,7 +1,8 @@
 'use strict';
 
 import { connect } from 'react-redux'
-import { addToBasket, removeFromStock } from '../actions/addToBasketAction'
+import { addToBasket, removeFromStock, increaseQuantity } from '../actions/addToBasketAction'
+import { disableItem} from '../actions/disableItemAction'
 import InventoryList from '../components/inventoryComponent'
 
 
@@ -13,7 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onAddToBasket: (item) => {
       dispatch(removeFromStock(item.id));
+      dispatch(disableItem(item.id));
       dispatch(addToBasket(item));
+      dispatch(increaseQuantity(item.id));
     }
   };
 };

@@ -1,100 +1,88 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family : 'Roboto',
+                sans-serif;
 }
+
 .main-container {
-  overflow: auto;
-  padding: 20px;
+  padding  : 20px;
+  overflow : auto;
 }
 
 .main {
-  display: flex;
+  display : flex;
 }
 
 h2 {
-  padding: 0 25px;
+  padding : 0 25px;
 }
 
 .productForm {
-  margin: 0 10px;
-  background: #ecf0f1;
-  border-radius: 3px;
-  flex: 1;
-  border: 1px #bdc3c7 solid;
+  margin        : 0 10px;
+  border        : 1px #bdc3c7 solid;
+  border-radius : 3px;
+  background    : #ecf0f1;
+  flex          : 1;
 }
 
 .form {
-  padding: 0 25px 20px;
+  padding : 0 25px 20px;
 }
 
 .formRow {
-  width: 100%;
-  display: inline-block;
+  display : inline-block;
+  width   : 100%;
 }
 
 input {
-  width: 100%;
-  height: 45px;
-  border-radius: 2px;
-  font-size: 18px;
-  padding: 0 8px 0;
-  border-style: solid;
-  border: 1px #bdc3c7 solid;
-  box-sizing: border-box;
+  box-sizing    : border-box;
+  width         : 100%;
+  height        : 45px;
+  padding       : 0 8px 0;
+  border        : 1px #bdc3c7 solid;
+  border-style  : solid;
+  border-radius : 2px;
+  font-size     : 18px;
 }
 
 .submitBtn {
-  display: inline-block;
-  margin: 20px 0 0;
+  display : inline-block;
+  margin  : 20px 0 0;
 }
 
 .List {
-  margin: 0 10px;
-  background: #ecf0f1;
-  border-radius: 3px;
-  flex: 1;
-  border: 1px #bdc3c7 solid;
+  margin        : 0 10px;
+  border        : 1px #bdc3c7 solid;
+  border-radius : 3px;
+  background    : #ecf0f1;
+  flex          : 1;
 }
 
 li {
-  list-style: none;
+  list-style : none;
 }
 
 .product {
-  padding: 0;
-  flex: 1
+  margin  : 6px 0;
+  padding : 0;
+  flex    : 1;
 }
 
 .listItem {
-  padding: 0 20px;
-  display: flex;
-  transition: .2s;
-  background: #bdc3c7;
-  margin-top: 2px;
-}
-
-.listItem:hover{
-  background: #34495e
+  display    : flex;
+  padding    : 0 20px;
+  background : #bdc3c7;
+  transition : .2s;
 }
 
 .icon {
-  margin: 10px 0;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 1px #bdc3c7 solid;
-  border-radius: 3px;
-}
-
-.icon:hover {
-  background: #2c3e50;
-  transition: .5s;
-}
-
-icon:active{
-  background: #bdc3c7;
+  display         : flex;
+  margin          : 10px 0;
+  border          : 1px #bdc3c7 solid;
+  border-radius   : 3px;
+  flex-direction  : column;
+  justify-content : center;
 }
 
 .formInput {
-  margin: 15px 0;
+  margin : 15px 0;
 }

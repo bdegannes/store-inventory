@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { addProduct } from '../actions/addProductAction'
 import RaisedButton from 'material-ui/lib/raised-button'
+import Validation from 'react-validation'
+import validator from 'validator'
 
 export default class Product extends Component {
 
@@ -92,6 +94,7 @@ export default class Product extends Component {
                 label="Submit"
                 primary={true}
                 onClick={this.onFormSubmit}
+                disabled={!this.state.product, !this.state.cost, !this.state.stock}
                 />
           </div>
         </form>

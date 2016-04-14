@@ -1,7 +1,8 @@
 'use strict';
 
 import { connect } from 'react-redux'
-import { removeFromBasket, addToStock } from '../actions/removeFromBasketAction'
+import { removeFromBasket, addToStock, decreaseQuantity } from '../actions/removeFromBasketAction'
+import { enableItem } from '../actions/disableItemAction'
 import BasketList from '../components/basketComponent'
 
 const mapStateToProps = ({ basket }) => {
@@ -13,7 +14,11 @@ const mapDispatchToProps = (dispatch) => {
     onRemoveFromBasket: (id) => {
       dispatch(addToStock(id));
       dispatch(removeFromBasket(id));
-     }
+      dispatch(decreaseQuantity(id));
+    },
+    enable: (item) => {
+      dispatch(enableItem(item.id));
+    }
   };
 };
 

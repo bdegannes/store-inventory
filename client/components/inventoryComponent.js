@@ -5,7 +5,14 @@ import Item from './itemComponent'
 
 class Inventory extends Component {
 
+  clickAction (product) {
+     if (!product.outOfStock) {
+       this.props.onAddToBasket(product)
+     }
+  }
+
   render () {
+
     return (
       <div className="List">
       <h2> Inventory </h2>
@@ -15,8 +22,8 @@ class Inventory extends Component {
               key={product.id}
               {...product}
               type="Stock"
-              onClick={() => this.props.onAddToBasket(product)}
               icon="shopping_cart"
+              onClick={ () => this.clickAction( product ) }
             />
           )}
         </div>
@@ -31,8 +38,9 @@ Inventory.propTypes = {
     product: PropTypes.string.isRequired,
     cost: PropTypes.number.isRequired,
     stock: PropTypes.number.isRequired,
+    outOfStock: PropTypes.bool,
   }).isRequired).isRequired,
-  onAddToBasket: PropTypes.func.isRequired
+  onAddToBasket: PropTypes.func.isRequired,
 }
 
 export default Inventory

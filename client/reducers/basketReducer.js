@@ -1,7 +1,8 @@
 'use strict';
 
-import { ADD_TO_BASKET, REMOVE_FROM_STOCK } from '../actions/addToBasketAction';
-import { REMOVE_FROM_BASKET, ADD_TO_STOCK  } from '../actions/removeFromBasketAction';
+import { ADD_TO_BASKET, INCREASE_ITEM_QUANTITY} from '../actions/addToBasketAction';
+import { REMOVE_FROM_BASKET, DECREASE_ITEM_QUANTITY } from '../actions/removeFromBasketAction';
+
 
 
 export default function basket(state = [], action){
@@ -23,6 +24,24 @@ export default function basket(state = [], action){
         ...state.slice(0, idx),
         ...state.slice(idx + 1)
       ];
+    case INCREASE_ITEM_QUANTITY:
+      return state.map((item, index) => {
+        if(item.id === action.id){
+          return Object.assign({}, item, {
+            [item.quantity]: item.quantity++
+          });
+        }
+      return item;
+      });
+    case DECREASE_ITEM_QUANTITY:
+      return state.map((item, index) => {
+        if(item.id === action.id){
+          return Object.assign({}, item, {
+            [item.quantity]: item.quantity--
+          });
+        }
+      return item;
+      });
     default:
       return state;
   }
