@@ -1,7 +1,8 @@
 # Store inventory
 
-To run app
+SETUP  
 
+    Download repo and run:
     npm install  
     npm start
 
