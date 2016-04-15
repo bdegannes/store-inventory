@@ -5,9 +5,6 @@ To run app
     npm install  
     npm start
 
-Built with:  
-
-    React, Redux, webpack, Node, Express
 
 MV* app split into three parts
 
@@ -37,3 +34,8 @@ MV* app split into three parts
 - Each row will include the product title, the quantity and
 - A button to remove all items of that product from the basket
 - When removed, the product is removed from the shopping basket and the quantity of the Inventory List is updated accordingly.
+
+
+Built with:  
+
+    React, Redux, webpack, Node, Express
