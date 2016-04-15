@@ -10,9 +10,10 @@ Built with:
     React, Redux, webpack, Node, Express
 
 MV* app split into three parts
--  A form to add new products to a "shop"
--  A list that represents products in the shop
--  A subset list of selected items from the shop
+
+    -  A form to add new products to a "shop"
+    -  A list that represents products in the shop
+    -  A subset list of selected items from the shop
 
 ### Features
 
