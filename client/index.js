@@ -10,12 +10,12 @@ import App from './components/app'
 
 const loggerMiddleware = createLogger();
 
-const store = applyMiddleware(promiseMiddleware, loggerMiddleware)(createStore)(rootReducer);
+const store = applyMiddleware( promiseMiddleware, loggerMiddleware )( createStore )( rootReducer );
 
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={ store }>
     <App />
   </Provider>,
-  document.querySelector('.main-container')
+  document.querySelector( '.main-container' )
 );

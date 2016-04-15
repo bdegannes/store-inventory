@@ -5,22 +5,22 @@ import Item from './itemComponent'
 
 class Inventory extends Component {
 
-  clickAction (product) {
-     if (!product.outOfStock) {
-       this.props.onAddToBasket(product);
+  clickAction ( product ) {
+    // if product is in stock add to basket action
+     if ( !product.outOfStock ) {
+       this.props.onAddToBasket( product );
      }
   }
 
   render () {
-
     return (
       <div className="List">
       <h2> Inventory </h2>
         <div >
-          {this.props.products.map(product =>
+          { this.props.products.map( product =>
             <Item
-              key={product.id}
-              {...product}
+              key={ product.id }
+              { ...product }
               type="Stock"
               icon="shopping_cart"
               onClick={ () => this.clickAction( product ) }
@@ -33,13 +33,13 @@ class Inventory extends Component {
 }
 
 Inventory.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({
+  products: PropTypes.arrayOf( PropTypes.shape({
     id: PropTypes.number.isRequired,
     product: PropTypes.string.isRequired,
     cost: PropTypes.number.isRequired,
-    stock: PropTypes.number.isRequired,
+    stock: PropTypes.number,
     outOfStock: PropTypes.bool,
-  }).isRequired).isRequired,
+  }).isRequired ).isRequired,
   onAddToBasket: PropTypes.func.isRequired,
 }
 

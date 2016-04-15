@@ -1,11 +1,13 @@
-# store-inventory
+# Store inventory
 
-To run app  
-      npm install  
-      npm start
+To run app
 
-Stack  
-    React, Redux, Webpack, Nodejs, Express
+    npm install  
+    npm start
+
+Built with:  
+
+    React, Redux, webpack, Node, Express
 
 MV* app split into three parts
 -  A form to add new products to a "shop"

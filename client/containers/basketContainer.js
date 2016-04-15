@@ -5,23 +5,23 @@ import { removeFromBasket, addToStock, decreaseQuantity } from '../actions/remov
 import { enableItem } from '../actions/disableItemAction'
 import BasketList from '../components/basket'
 
-const mapStateToProps = ({ basket }) => {
+const mapStateToProps = ( { basket } ) => {
   return { basket };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = ( dispatch ) => {
   return {
-    onRemoveFromBasket: (id) => {
-      dispatch(addToStock(id));
-      dispatch(removeFromBasket(id));
-      dispatch(decreaseQuantity(id));
+    onRemoveFromBasket: ( id ) => {
+      dispatch( addToStock( id ) );
+      dispatch( removeFromBasket( id ) );
+      dispatch( decreaseQuantity( id ) );
     },
-    enable: (item) => {
-      dispatch(enableItem(item.id));
+    enable: ( item ) => {
+      dispatch( enableItem( item.id ) );
     }
   };
 };
 
-const Basket = connect( mapStateToProps, mapDispatchToProps)(BasketList)
+const Basket = connect( mapStateToProps, mapDispatchToProps )( BasketList )
 
 export default Basket

@@ -4,8 +4,7 @@ export const DISABLE_ITEM = 'DISABLE_ITEM';
 export const ENABLE_ITEM = 'ENABLE_ITEM';
 
 
-export function disableItem(id) {
-console.log("disable ", id)
+export function disableItem( id ) {
 
   return {
     type: DISABLE_ITEM,
@@ -13,8 +12,7 @@ console.log("disable ", id)
   };
 }
 
-export function enableItem(id) {
-console.log("enable ", id)
+export function enableItem( id ) {
 
   return {
     type: ENABLE_ITEM,

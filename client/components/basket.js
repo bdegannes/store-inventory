@@ -6,13 +6,13 @@ import Item from './itemComponent'
 
 class Basket extends Component {
 
-removeAction (item) {
-  this.props.onRemoveFromBasket(item.id)
-  this.props.enable(item)
+/*Remove items from basket back to inventory stock */
+removeAction ( item ) {
+  this.props.enable( item )
+  this.props.onRemoveFromBasket( item.id )
 }
 
   render () {
-    console.log("this is props", this.props);
     return (
       <div className="List">
         <h2> Basket </h2>
@@ -24,7 +24,7 @@ removeAction (item) {
               cost={ item.cost }
               stock={ item.quantity }
               type="Quantity"
-              onClick={ () => this.removeAction(item) }
+              onClick={ () => this.removeAction( item ) }
               icon="remove_shopping_cart"
             />
           )}
@@ -33,6 +33,7 @@ removeAction (item) {
     )
   }
 }
+
 
 Basket.propTypes = {
   basket: PropTypes.arrayOf(PropTypes.shape({

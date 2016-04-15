@@ -6,21 +6,21 @@ import { disableItem} from '../actions/disableItemAction'
 import InventoryList from '../components/inventory'
 
 
-const mapStateToProps = ({ products }) => {
+const mapStateToProps = ( { products } ) => {
   return { products };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = ( dispatch ) => {
   return {
-    onAddToBasket: (item) => {
-      dispatch(removeFromStock(item.id));
-      dispatch(disableItem(item.id));
-      dispatch(addToBasket(item));
-      dispatch(increaseQuantity(item.id));
+    onAddToBasket: ( item ) => {
+      dispatch( removeFromStock( item.id ) );
+      dispatch( disableItem( item.id ) );
+      dispatch( addToBasket( item ) );
+      dispatch( increaseQuantity( item.id ) );
     }
   };
 };
 
-const Inventory = connect( mapStateToProps, mapDispatchToProps)(InventoryList)
+const Inventory = connect( mapStateToProps, mapDispatchToProps )( InventoryList )
 
 export default Inventory

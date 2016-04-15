@@ -5,9 +5,9 @@ import { REMOVE_FROM_BASKET, DECREASE_ITEM_QUANTITY } from '../actions/removeFro
 
 
 
-export default function basket(state = [], action){
+export default function basket( state = [], action ) {
 
-  switch(action.type) {
+  switch( action.type ) {
     case ADD_TO_BASKET:
       return [
         ...state,
@@ -15,28 +15,28 @@ export default function basket(state = [], action){
       ];
     case REMOVE_FROM_BASKET:
       let idx = 0;
-      state.map((item, index) => {
+      state.map( ( item, index ) => {
         if ( item.id === action.id ){
           idx = index;
         }
       })
       return [
-        ...state.slice(0, idx),
-        ...state.slice(idx + 1)
+        ...state.slice( 0, idx ),
+        ...state.slice( idx + 1 )
       ];
     case INCREASE_ITEM_QUANTITY:
-      return state.map((item, index) => {
-        if(item.id === action.id){
-          return Object.assign({}, item, {
+      return state.map( ( item, index ) => {
+        if( item.id === action.id ){
+          return Object.assign( {}, item, {
             [item.quantity]: item.quantity++
           });
         }
       return item;
       });
     case DECREASE_ITEM_QUANTITY:
-      return state.map((item, index) => {
-        if(item.id === action.id){
-          return Object.assign({}, item, {
+      return state.map( ( item, index ) => {
+        if( item.id === action.id ){
+          return Object.assign( {}, item, {
             [item.quantity]: item.quantity--
           });
         }

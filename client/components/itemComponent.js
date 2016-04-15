@@ -11,6 +11,7 @@ const iconStyles = {
   fontSize: 30
 };
 
+
 const styles = {
   item: {
     color: '#7f8c8d'
@@ -30,8 +31,8 @@ const styles = {
 };
 
 class Item extends Component {
-  constructor (props){
-    super(props);
+  constructor ( props ){
+    super( props );
     this.state = {
       disabled: false,
       isHovering: false,
@@ -46,29 +47,29 @@ class Item extends Component {
     this.setState( { isHovering: false } );
   }
 
-  componentWillReceiveProps (newProps){
-    if(newProps.outOfStock){
-      this.setState({ disabled: true });
+  componentWillReceiveProps ( newProps ){
+    if( newProps.outOfStock ){
+      this.setState( { disabled: true } );
     } else {
-      this.setState({ disabled: false });
+      this.setState( { disabled: false } );
     }
   }
 
 
   render () {
 
-    if (this.state.isHovering && this.state.disabled) {
+    if ( this.state.isHovering && this.state.disabled ) {
         var itemStyling = styles.hoverDisabled;
         var iconColor = Colors.minBlack;
-    } else if (this.state.isHovering && !this.state.disabled) {
+    }
+    else if ( this.state.isHovering && !this.state.disabled ) {
         var iconStyling = styles.iconHover;
         itemStyling = styles.hover;
-    } else if (!this.state.isHovering && this.state.disabled){
+    }
+    else if ( !this.state.isHovering && this.state.disabled ) {
         itemStyling = styles.item;
         iconColor = Colors.minBlack;
     }
-
-    const stock = this.props.outOfStock ? "None" : this.props.stock;
 
     return (
       <div
@@ -80,7 +81,7 @@ class Item extends Component {
         <ul className="product">
           <li>{ this.props.product }</li>
           <li>Price: ${ this.props.cost }</li>
-          <li>{ this.props.type }: { stock }</li>
+          <li>{ this.props.type }: { this.props.stock }</li>
         </ul>
         <div
             className="icon"

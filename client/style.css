@@ -16,6 +16,8 @@ h2 {
   padding : 0 25px;
 }
 
+/*///////////////////FORM STYLING//////////////////*/
+
 .productForm {
   margin        : 0 10px;
   border        : 1px #bdc3c7 solid;
@@ -44,10 +46,17 @@ input {
   font-size     : 18px;
 }
 
+.formInput {
+  margin : 15px 0;
+}
+
 .submitBtn {
   display : inline-block;
   margin  : 20px 0 0;
 }
+
+/*///////////////////ITEM STYLING//////////////////*/
+
 
 .List {
   margin        : 0 10px;
@@ -84,9 +93,7 @@ li {
   justify-content : center;
 }
 
-.formInput {
-  margin : 15px 0;
-}
+/*///////////////////ERROR STYLING//////////////////*/
 
 .error_container.visible {
     margin: 10px;

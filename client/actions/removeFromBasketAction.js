@@ -5,8 +5,7 @@ export const ADD_TO_STOCK = 'ADD_TO_STOCK';
 export const DECREASE_ITEM_QUANTITY = 'DECREASE_ITEM_QUANTITY';
 
 
-export function removeFromBasket(id) {
-console.log("this is click action ", id)
+export function removeFromBasket( id ) {
 
   return {
     type: REMOVE_FROM_BASKET,
@@ -14,8 +13,7 @@ console.log("this is click action ", id)
   };
 }
 
-export function addToStock(id) {
-console.log("update action called ", id)
+export function addToStock( id ) {
 
   return {
     type: ADD_TO_STOCK,
@@ -23,7 +21,7 @@ console.log("update action called ", id)
   };
 }
 
-export function decreaseQuantity(id) {
+export function decreaseQuantity( id ) {
   return {
     type: DECREASE_ITEM_QUANTITY,
     id,
