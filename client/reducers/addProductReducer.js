@@ -45,7 +45,6 @@ export default function products ( state = [], action ) {
         if( item.id === action.id && !item.stock ){
             return Object.assign( {}, item, {
               outOfStock: true,
-              stock: "Out of Stock"
             });
         }
         return item;
@@ -55,7 +54,6 @@ export default function products ( state = [], action ) {
          if( item.id === action.id && !!item.stock ){
            return Object.assign( {}, item, {
              outOfStock: false,
-             stock: 0
            });
          }
          return item;

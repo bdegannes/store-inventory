@@ -71,6 +71,8 @@ class Item extends Component {
         iconColor = Colors.minBlack;
     }
 
+    const stock = this.props.outOfStock ? "Out of Stock" : this.props.stock;
+
     return (
       <div
           className="listItem"
@@ -81,7 +83,7 @@ class Item extends Component {
         <ul className="product">
           <li>{ this.props.product }</li>
           <li>Price: ${ this.props.cost }</li>
-          <li>{ this.props.type }: { this.props.stock }</li>
+          <li>{ this.props.type }: { stock }</li>
         </ul>
         <div
             className="icon"
