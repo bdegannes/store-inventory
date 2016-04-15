@@ -3,7 +3,7 @@
 import { connect } from 'react-redux'
 import { removeFromBasket, addToStock, decreaseQuantity } from '../actions/removeFromBasketAction'
 import { enableItem } from '../actions/disableItemAction'
-import BasketList from '../components/basketComponent'
+import BasketList from '../components/basket'
 
 const mapStateToProps = ({ basket }) => {
   return { basket };

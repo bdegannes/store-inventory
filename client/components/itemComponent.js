@@ -31,28 +31,29 @@ const styles = {
 
 class Item extends Component {
   constructor (props){
-    super(props)
+    super(props);
     this.state = {
       disabled: false,
       isHovering: false,
-    }
+    };
   }
 
   handleMouseOver () {
-    this.setState( { isHovering: true } )
+    this.setState( { isHovering: true } );
   }
 
   handleMouseOut () {
-    this.setState( { isHovering: false } )
+    this.setState( { isHovering: false } );
   }
 
   componentWillReceiveProps (newProps){
     if(newProps.outOfStock){
-      this.setState({ disabled: true })
+      this.setState({ disabled: true });
     } else {
-      this.setState({ disabled: false })
+      this.setState({ disabled: false });
     }
   }
+
 
   render () {
 

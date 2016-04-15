@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react'
-import Product from '../containers/productContainer'
+import Product from '../components/productForm'
 import Inventory from '../containers/inventoryContainer'
 import Basket from '../containers/basketContainer'
 

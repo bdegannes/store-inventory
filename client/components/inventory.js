@@ -7,7 +7,7 @@ class Inventory extends Component {
 
   clickAction (product) {
      if (!product.outOfStock) {
-       this.props.onAddToBasket(product)
+       this.props.onAddToBasket(product);
      }
   }
 

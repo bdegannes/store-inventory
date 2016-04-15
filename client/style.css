@@ -69,6 +69,7 @@ li {
 
 .listItem {
   display    : flex;
+  margin     : 2px;
   padding    : 0 20px;
   background : #bdc3c7;
   transition : .2s;
@@ -85,4 +86,8 @@ li {
 
 .formInput {
   margin : 15px 0;
+}
+
+.error_container.visible {
+    margin: 10px;
 }
