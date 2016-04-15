@@ -16,6 +16,7 @@ export default class Product extends Component {
       product: "",
       cost: 0,
       stock: 0,
+      reset: false
     };
     this.onFormSubmit = this.onFormSubmit.bind(this)
   }
@@ -23,7 +24,10 @@ export default class Product extends Component {
   setProductForm(event) {
     return {
       product: (event) => {
-        this.setState({ product: event.target.value })
+        this.setState({
+          product: event.target.value,
+          reset: false
+        })
       },
       cost: (event) => {
         this.setState({ cost: +event.target.value })
@@ -34,6 +38,8 @@ export default class Product extends Component {
     }
   }
 
+
+
   onFormSubmit(event){
     event.preventDefault();
     this.props.addProduct(this.state);
@@ -41,6 +47,7 @@ export default class Product extends Component {
       product: "",
       cost: 0,
       stock: 0,
+      reset: true
     });
    }
 
@@ -53,10 +60,6 @@ export default class Product extends Component {
      //will also accept a number with or without a dollar sign
      var regex  = /^\$?[0-9]+(\.[0-9][0-9])?$/;
      return regex.test(value);
-   }
-
-   validateStock (value) {
-     return !isEmpty(value)
    }
 
    validateSubmit () {
@@ -80,6 +83,7 @@ export default class Product extends Component {
                   validate={this.validateText}
                   onChange={this.setProductForm().product}
                   errorMessage="Product is required!"
+                  clear={this.state.reset}
                   />
           </div>
           <div className="formInput">
@@ -93,6 +97,7 @@ export default class Product extends Component {
                   validate={this.validateCurrency}
                   onChange={this.setProductForm().cost}
                   errorMessage="Input product cost!"
+                  clear={this.state.reset}
                   />
           </div>
           <div className="formInput">
@@ -103,9 +108,10 @@ export default class Product extends Component {
                   min="0"
                   step="1"
                   required={true}
-                  validate={this.validateStock}
+                  validate={this.validateText}
                   onChange={this.setProductForm().stock}
                   errorMessage="Enter stock."
+                  clear={this.state.reset}
                   />
           </div>
           <div className="submitBtn" >
@@ -122,6 +128,7 @@ export default class Product extends Component {
     )
   }
 }
+
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addProduct }, dispatch)

@@ -23,8 +23,6 @@ class FormInput extends Component {
   handleChange (event) {
     this.validation(event.target.value);
 
-    console.log("logging Props", this.props.onChange)
-
     if(this.props.onChange){
       this.props.onChange(event);
     }
@@ -35,19 +33,15 @@ class FormInput extends Component {
       valid = true
     }
 
-    console.log("is this valid", value, valid);
-
     var message = '';
     var errorVisible = false;
 
     if(!valid){
-      console.log("i fired !valid");
       message = this.props.errorMessage;
       valid = false;
       errorVisible = true;
     }
     else if ( this.props.required && isEmpty(value) ){
-      console.log("i fired empty");
       message = this.props.errorMessage;
       valid = false;
       errorVisible = true;
@@ -68,12 +62,21 @@ class FormInput extends Component {
   }
 
   handleBlur (event) {
-    console.log("the event", event);
     var valid = this.props.validate(event.target.value);
     this.validation(event.target.value, valid);
   }
 
+  componentWillReceiveProps(newProps){
+    console.log("NewProps", newProps);
+    if (newProps.clear){
+      this.setState({
+        value: null
+      })
+    }
+  }
+
   render () {
+    console.log("PROPS", this.props);
     return (
       <div className={this.props.uniqueName}>
         <input
@@ -93,6 +96,18 @@ class FormInput extends Component {
       </div>
     )
   }
+}
+
+FormInput.proptypes = {
+  type: PropTypes.string,
+  min: PropTypes.number,
+  step: PropTypes.number,
+  text: PropTypes.string,
+  uniqueName: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  validate: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  required: PropTypes.bool,
 }
 
 export default FormInput
