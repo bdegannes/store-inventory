@@ -2,9 +2,16 @@
 
 SETUP  
 
-    Download repo and run:
+After cloning the repository, install dependencies:  
+
+    cd store-inventory
     npm install  
+
+Now you can run your local server:
+
     npm start
+
+Server is located at http://localhost:3000
 
 
 MV* app split into three parts
