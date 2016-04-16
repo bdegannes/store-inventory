@@ -1,6 +1,5 @@
 # Store inventory
-
-SETUP  
+ 
 
 After cloning the repository, install dependencies:  
 
@@ -12,6 +11,7 @@ Now you can run your local server:
     npm start
 
 Server is located at http://localhost:3000
+
 
 
 MV* app split into three parts
@@ -46,4 +46,4 @@ MV* app split into three parts
 
 Built with:  
 
-    React, Redux, webpack, Node, Express
+    React, Redux, webpack
