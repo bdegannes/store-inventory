@@ -10,7 +10,7 @@ class FormInput extends Component {
     super( props );
     this.state = {
       isEmpty: true,
-      value: null,
+      value: '',
       valid: false,
       errorMessage: '',
       errorVisible: false
@@ -79,7 +79,7 @@ class FormInput extends Component {
     // clear state value on submission
     if ( newProps.clear ){
       this.setState({
-        value: null
+        value: ''
       })
     }
   }
