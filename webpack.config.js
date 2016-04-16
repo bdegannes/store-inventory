@@ -1,8 +1,9 @@
 var path = require('path');
-var webpack = require('webpack'); 
+var webpack = require('webpack');
 
 module.exports = {
   entry: [
+    'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',
     './client/index.js',
   ],
@@ -47,5 +48,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './',
+    devtool: 'eval',
+    hot: true,
+    inline: true,
+    port: 3000,        
+    host: 'localhost',
   },
 };

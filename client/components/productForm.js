@@ -4,14 +4,16 @@ import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { addProduct } from '../actions/addProductAction'
-import RaisedButton from 'material-ui/lib/raised-button'
+import RaisedButton from 'material-ui/RaisedButton'
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FormInput from './form/inputField'
 import isEmpty from 'lodash/isEmpty'
 
 export default class Product extends Component {
 
-  constructor( props ){
-    super( props );
+  constructor( props, context ){
+    super( props, context );
     this.state = {
       product: "",
       cost: 0,
@@ -117,12 +119,14 @@ export default class Product extends Component {
                   />
           </div>
           <div className="submitBtn" >
-            <RaisedButton
-                label="Submit"
-                primary={ true }
-                onClick={ this.onFormSubmit }
-                disabled={ this.validateSubmit() }
-                />
+            <MuiThemeProvider>
+              <RaisedButton
+                  label="Submit"
+                  primary={ true }
+                  onClick={ this.onFormSubmit }
+                  disabled={ this.validateSubmit() }
+                  />
+            </MuiThemeProvider>
           </div>
         </form>
       </div>
@@ -134,6 +138,6 @@ export default class Product extends Component {
 
 function mapDispatchToProps( dispatch ) {
   return bindActionCreators( { addProduct }, dispatch )
-}
+  }
 
 export default connect( null, mapDispatchToProps )( Product );

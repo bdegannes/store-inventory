@@ -1,9 +1,10 @@
 'use strict';
 
 import React, { PropTypes, Component } from 'react'
-import { Styles, FontIcon } from 'material-ui'
-
-const Colors = Styles.Colors;
+import { FontIcon } from 'material-ui'
+import { minBlack } from 'material-ui/styles/colors'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 const iconStyles = {
   marginRight: 20,
@@ -11,7 +12,7 @@ const iconStyles = {
   fontSize: 30
 };
 
-
+console.log("Colors", minBlack)
 const styles = {
   item: {
     color: '#7f8c8d'
@@ -60,7 +61,7 @@ class Item extends Component {
 
     if ( this.state.isHovering && this.state.disabled ) {
         var itemStyling = styles.hoverDisabled;
-        var iconColor = Colors.minBlack;
+        var iconColor = minBlack;
     }
     else if ( this.state.isHovering && !this.state.disabled ) {
         var iconStyling = styles.iconHover;
@@ -68,7 +69,7 @@ class Item extends Component {
     }
     else if ( !this.state.isHovering && this.state.disabled ) {
         itemStyling = styles.item;
-        iconColor = Colors.minBlack;
+        iconColor = minBlack;
     }
 
     const stock = this.props.outOfStock ? "Out of Stock" : this.props.stock;
@@ -90,7 +91,9 @@ class Item extends Component {
             onClick={ this.props.onClick }
             style={ iconStyling }
             >
-            <FontIcon className="material-icons" style={ iconStyles } color={ iconColor }>{ this.props.icon }</FontIcon>
+            <MuiThemeProvider>
+              <FontIcon className="material-icons" style={ iconStyles } color={ iconColor }>{ this.props.icon }</FontIcon>
+            </MuiThemeProvider>
         </div>
       </div>
     )
