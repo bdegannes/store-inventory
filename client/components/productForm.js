@@ -15,26 +15,26 @@ export default class Product extends Component {
   constructor( props, context ){
     super( props, context );
     this.state = {
-      product: "",
-      cost: 0,
-      stock: 0,
+      product: '',
+      cost: '',
+      stock: '',
       reset: false
     };
-    this.onFormSubmit = this.onFormSubmit.bind( this )
+    this.onFormSubmit = this.onFormSubmit.bind( this );
   }
 
   setProductForm( event ) {
     return {
       product: ( event ) => {
-        this.setState( { product: event.target.value, reset: false } )
+        this.setState( { product: event.target.value, reset: false } );
       },
       cost: ( event ) => {
-        this.setState({ cost: event.target.value })
+        this.setState({ cost: +event.target.value });
       },
       stock: ( event ) => {
-        this.setState( { stock: event.target.value } )
+        this.setState( { stock: +event.target.value } );
       }
-    }
+    };
   }
 
 
@@ -44,16 +44,16 @@ export default class Product extends Component {
     this.props.addProduct( this.state) ;
     // reset state
     this.setState({
-      product: "",
-      cost: 0,
-      stock: 0,
+      product: '',
+      cost: '',
+      stock: '',
       reset: true
     });
    }
 
    validateText ( value ) {
      // check if we have a value
-     return !isEmpty(value)
+     return !isEmpty(value);
    }
 
    validateCurrency ( value ) {
@@ -65,9 +65,10 @@ export default class Product extends Component {
 
    validateSubmit () {
     // validate all our input field a filled when submitting form
-     if( isEmpty( this.state.product ) || this.state.cost === 0 || this.state.stock === 0 ){
-       return true
+     if( isEmpty( this.state.product ) || this.state.cost === 0 || this.state.stock === "" ){
+       return true;
      }
+     return false;
    }
 
   render () {
@@ -136,7 +137,7 @@ export default class Product extends Component {
 }
 
 
-function mapDispatchToProps( dispatch ) {
+const mapDispatchToProps = ( dispatch ) => {
   return bindActionCreators( { addProduct }, dispatch )
   }
 

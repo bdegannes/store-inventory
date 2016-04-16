@@ -35,7 +35,6 @@ class Item extends Component {
   constructor ( props ){
     super( props );
     this.state = {
-      disabled: false,
       isHovering: false,
     };
   }
@@ -48,26 +47,18 @@ class Item extends Component {
     this.setState( { isHovering: false } );
   }
 
-  componentWillReceiveProps ( newProps ){
-    if( newProps.outOfStock ){
-      this.setState( { disabled: true } );
-    } else {
-      this.setState( { disabled: false } );
-    }
-  }
-
 
   render () {
 
-    if ( this.state.isHovering && this.state.disabled ) {
+    if ( this.state.isHovering && this.props.outOfStock ) {
         var itemStyling = styles.hoverDisabled;
         var iconColor = minBlack;
     }
-    else if ( this.state.isHovering && !this.state.disabled ) {
+    else if ( this.state.isHovering && !this.props.outOfStock ) {
         var iconStyling = styles.iconHover;
         itemStyling = styles.hover;
     }
-    else if ( !this.state.isHovering && this.state.disabled ) {
+    else if ( !this.state.isHovering && this.props.outOfStock ) {
         itemStyling = styles.item;
         iconColor = minBlack;
     }

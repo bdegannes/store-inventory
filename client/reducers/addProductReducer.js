@@ -13,14 +13,7 @@ export default function products ( state = [], action ) {
    case ADD_PRODUCT:
     return [
       ...state,
-      {
-        id: action.id,
-        product: action.item.product,
-        cost: +action.item.cost,
-        stock: +action.item.stock,
-        quantity: 0,
-        outOfStock: false
-      }
+      action.item
     ];
    case REMOVE_FROM_STOCK:
      return state.map( ( item, index ) => {

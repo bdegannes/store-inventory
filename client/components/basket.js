@@ -8,8 +8,8 @@ class Basket extends Component {
 
 /*Remove items from basket back to inventory stock */
 removeAction ( item ) {
-  this.props.enable( item )
   this.props.onRemoveFromBasket( item.id )
+  this.props.enable( item )
 }
 
   render () {
